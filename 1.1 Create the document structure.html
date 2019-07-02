@@ -7,7 +7,69 @@
 </head>
 
 <body>
-    <!-- page content goes here -->
+    <!-- header: Marcação semântica HTML5. Define o topo de uma seção ou página -->
+    <header>
+        <h1>Some fictional company Website</h1>
+        <!-- nav: Marcação semântica HTML5. Define navegação para outras páginas do site -->
+        <nav>
+            <a href="Home.html">Document Structure</a>
+            <a href="Blog.html">Writing Code</a>
+            <a href="About.html">Styles</a>
+        </nav>
+    </header>
+    <!-- article: Marcação semântica HTML5. Define áreas independentes em uma página -->
+    <article>
+        <header>
+            <!-- hgroup: Marcação semântica HTML5. Define um grupo de títulos -->
+            <hgroup>
+                <h1>Our first new Article</h1>
+            </hgroup>
+        </header>
+        <!-- section: Marcação semântica HTML5. Define o conteúdo distinto de um documento -->
+        <section>
+            <h1>Section 1</h1>
+            <p>Some details about section 1</p>
+            <!-- aside: Marcação semântica HTML5. Define áreas de conteúdo menores fora do fluxo de uma página da web -->
+            <aside>Did you know that 7/10 is 70%</aside>
+        </section>
+        <section>
+            <h1>Section 2</h1>
+        </section>
+    </article>
+    <article>
+        <header>
+            <hgroup>
+                <h1>Second huge article</h1>
+            </hgroup>
+        </header>
+        <p>Provide some useful information in the article</p>
+    </article>
+    <article>
+        <header>
+            <hgroup>
+                <h1>Third huge article</h1>
+            </hgroup>
+        </header>
+        <p>Provide some useful information in the third article</p>
+
+        <!-- figure: Marcação semântica HTML5. Define o conteúdo que contém uma figura, como uma imagem, gráfico ou imagem -->
+        <figure>
+            <img src="orange.jpg" style="width:50px; height:50px;" />
+            <!-- figcaption: Marcação semântica HTML5. Define a legenda de um elemento de figura -->
+            <figcaption>Fig 1: A really juicy orange.</figcaption>
+        </figure>
+
+        <p>Our goal is to have 1000 users:</p>
+        <span>0</span>
+        <!-- progress: Marcação semântica HTML5. Define o progresso da tarefa -->
+        <progress value="750" max="1000"></progress>
+        <span>1000</span>
+        <p>Data download is in progress, please wait patiently:</p>
+        <progress max="5"></progress>
+
+        <!-- mark: Marcação semântica HTML5. Define o texto que deve ser destacado -->
+        <p>Some very <mark style="background-color: red">important</mark> information provided here!</p>
+    </article>
 </body>
 
 </html>
