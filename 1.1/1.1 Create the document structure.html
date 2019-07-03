@@ -70,6 +70,57 @@
         <!-- mark: Marcação semântica HTML5. Define o texto que deve ser destacado -->
         <p>Some very <mark style="background-color: red">important</mark> information provided here!</p>
     </article>
+
+    <!-- Para um layout mais estático, o elemento table é mais apropriado. -->
+    <table>
+        <tr>
+            <td colspan="3" id="Header"></td>
+        </tr>
+        <tr>
+            <td rowspan="3" id="LeftBar"></td>
+            <td rowspan="3" id="MainContent"></td>
+            <td id="RightSideTop"></td>
+        </tr>
+        <tr>
+            <td id="RightSideMiddle"></td>
+        </tr>
+        <tr>
+            <td colspan="3" id="Footer"></td>
+        </tr>
+    </table>
+
+    <!-- Criando uma estrutura de documento com uma série de cabeçalhos (válido em HTML5, mas não recomendado) -->
+    <h1>Fruits and Vegetables</h1>
+    <h2>Fruit</h2>
+    <h3>Round Fruit</h3>
+    <h3>Long Fruit</h3>
+    <h2>Vegetables</h2>
+    <h3>Green</h3>
+    <h3>Colorful</h3>
+
+    <!-- Produzindo a mesma hierarquia, mas utilizando marcação semântiga do HTML5 (section). Otimizando para leitores de tela -->
+    <section>
+        <h1>Fruits and Vegetables</h1>
+        <section>
+            <h1>Fruit</h1>
+            <section>
+                <h1>Round Fruit</h1>
+            </section>
+            <section>
+                <h1>Long Fruit</h1>
+            </section>
+        </section>
+        <section>
+            <h1>Vegetables</h1>
+            <section>
+                <h1>Green</h1>
+            </section>
+            <section>
+                <h1>Colorful</h1>
+            </section>
+        </section>
+    </section>
+
 </body>
 
 </html>
