@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML source to work with the DOM</title>
+
+    <style>
+        img:hover {
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        var video;
+        window.onload = function () {
+            // var element = document.getElementById("outerDiv");
+            // alert(element.innerHTML);
+
+            // var paragraphs = document.getElementsByTagName("p");
+            // alert(paragraphs.length);
+
+            // var paragraphs = document.getElementsByClassName("subPara");
+            // alert("<p> elements with class subPara: " + paragraphs.length);
+
+            // var paragraphs = document.querySelectorAll("p");
+            // alert(paragraphs.length);
+
+            // var element = document.querySelector("#outerDiv");
+            // alert(element.innerHTML);
+
+            // var element = document.getElementById("innerDiv");
+            // alert(element.innerHTML);
+            // document.removeChild(element);
+            // var afterRemove = document.getElementById("innerDiv");
+            // alert(afterRemove);
+
+            // var outerDiv = document.getElementById("outerDiv");
+            // var element = document.createElement("article");
+            // element.innerText = "My new <article> element";
+            // outerDiv.appendChild(element);
+
+            // var element = document.getElementById("outerDiv").appendChild(document.createElement("article"));
+            // element.innerText = "My new <article> element";
+
+            // var element = document.getElementById("outerDiv").insertBefore(document.createElement("article"), document.getElementById("innerDiv"));
+            // element.innerText = "My new <article> element";
+
+            // var inner = document.getElementById("innerDiv");
+            // var element = inner.insertBefore(document.createElement("article"), inner.firstChild);
+            // element.innerText = "My new <article> element";
+
+            // var innerDiv = document.getElementById("innerDiv");
+            // var p = innerDiv.removeChild(document.getElementById("P1"));
+
+            // var innerDiv = document.getElementById("innerDiv");
+            // innerDiv.removeNode(true);
+
+            // var innerDiv = document.getElementById("innerDiv");
+            // var newDiv = document.createElement("div");
+            // for (var i = 0; i < innerDiv.childNodes.length; i++) {
+            //     var anchor = newDiv.appendChild(document.createElement("a"));
+            //     anchor.setAttribute("href", "http://www.bing.ca");
+            //     anchor.text = innerDiv.childNodes[i].textContent;
+            //     newDiv.appendChild(document.createElement("br"));
+            // }
+            // innerDiv.replaceNode(newDiv);
+
+            video = document.getElementById("sampleVideo");
+        }
+
+        function play() {
+            video.play();
+        }
+        function pause() {
+            video.pause();
+        }
+        function back() {
+            video.currentTime -= 10;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="outerDiv">
+        <p class="mainPara">Main Paragraph</p>
+        <ul>
+            <li>First List Item</li>
+            <li>Second List Item</li>
+            <li>Third List Item</li>
+            <li>Fourth List Item</li>
+        </ul>
+        <div id="innerDiv" class="subPara">
+            <p class="subPara" id="P1">Paragraph 1</p>
+            <p class="subPara" id="P2">Paragraph 2</p>
+            <p class="subPara" id="P3">Paragraph 3</p>
+            <p class="subPara" id="P4">Paragraph 4</p>
+        </div>
+        <table>
+            <tr>
+                <td>Row 1
+                </td>
+            </tr>
+            <tr>
+                <td>Row 2
+                </td>
+            </tr>
+            <tr>
+                <td>Row 3
+                </td>
+            </tr>
+            <tr>
+                <td>Row 4
+                </td>
+            </tr>
+            <tr>
+                <td>Row 5
+                </td>
+            </tr>
+        </table>
+        <input type="text" /><input type="submit" value="Submit" />
+    </div>
+
+    <video controls poster="https://upload.wikimedia.org/wikipedia/commons/c/c9/Moon.jpg" height="400" width="600" loop>
+        <source src="https://vimeo.com/286236201" type="video/mp4" />
+        <object>
+            <p>Video is not supported by this browser.</p>
+        </object>
+    </video>
+
+    <table>
+        <tr>
+            <td>
+                <video height="400" width="600" id="sampleVideo">
+                    <source src="https://vimeo.com/286236201" type="audio/mp4" />
+                </video>
+            </td>
+            <td>
+                <img id="backButton" src="https://img.pngio.com/backward-fast-media-icon-download-free-icons-backwards-png-256_256.png" onclick="back();" /><br />
+                <img id="playButton" src="https://image.flaticon.com/icons/png/128/148/148736.png" onclick="play();" /><br />
+                <img id="PauseButton" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-pause-128.png" onclick="pause();" /><br />
+            </td>
+        </tr>
+    </table>
+
+    <audio controls>
+        <source src=""/>
+    </audio>
+</body>
+
+</html>
+
+Objective 1.2: Write code that interacts with UI controls
+Adding or modifying HTML elemens
+Implementing media controls
