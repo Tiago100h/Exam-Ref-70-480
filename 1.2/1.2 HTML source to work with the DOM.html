@@ -9,6 +9,10 @@
         img:hover {
             cursor: pointer;
         }
+
+        canvas {
+            border: 1px solid black;
+        }
     </style>
 
     <script>
@@ -67,6 +71,162 @@
             // innerDiv.replaceNode(newDiv);
 
             video = document.getElementById("sampleVideo");
+
+
+            /* Desenhando linhas alterando a espessura e cor */
+            // var drawingSurface = document.getElementById("drawingSurface");
+            // var ctxt = drawingSurface.getContext("2d");
+            // ctxt.beginPath();
+            // ctxt.moveTo(10, 10);
+            // ctxt.lineTo(225, 350);
+            // ctxt.lineTo(300, 10);
+            // ctxt.lineTo(400, 350);
+            // ctxt.lineWidth = 5;
+            // ctxt.strokeStyle = '#0f0';
+            // ctxt.stroke();
+
+            /* Desenhando arcos */
+            // var drawingSurface = document.getElementById("drawingSurface");
+            // var ctxt = drawingSurface.getContext("2d");
+            // ctxt.beginPath();
+            // ctxt.arc(150, 100, 75, 0, 2 * Math.PI, false);
+            // ctxt.lineWidth = 25;
+            // ctxt.strokeStyle = '#0f0';
+            // ctxt.stroke();
+            // ctxt.beginPath();
+            // ctxt.arc(450, 100, 75, 1.5 * Math.PI, 2 * Math.PI, false);
+            // ctxt.lineWidth = 25;
+            // ctxt.strokeStyle = 'blue';
+            // ctxt.stroke();
+            // ctxt.beginPath();
+            // ctxt.arc(150, 300, 75, Math.PI, 1.5 * Math.PI, false);
+            // ctxt.lineWidth = 25;
+            // ctxt.strokeStyle = '#0ff';
+            // ctxt.stroke();
+            // ctxt.beginPath();
+            // ctxt.arc(450, 300, 75, .5 * Math.PI, Math.PI, false);
+            // ctxt.lineWidth = 25;
+            // ctxt.strokeStyle = '#f00';
+            // ctxt.stroke();
+
+            /* Criando curvas com o método quadraticCurveTo (permite adicionar  apenas 1 ponto de controle) */
+            // var drawingSurface = document.getElementById("drawingSurface");
+            // var ctxt = drawingSurface.getContext("2d");
+            // ctxt.beginPath();
+            // ctxt.moveTo(10, 380);
+            // ctxt.quadraticCurveTo(300, -250, 580, 380);
+            // ctxt.lineWidth = 25;
+            // ctxt.strokeStyle = '#f00';
+            // ctxt.stroke();
+
+            /* Criando curvas mais complexas com o método bezierCurveTo (permite adicionar 2 pontos de controle) */
+            // var drawingSurface = document.getElementById("drawingSurface");
+            // var ctxt = drawingSurface.getContext("2d");
+            // ctxt.beginPath();
+            // ctxt.moveTo(125, 20);
+            // ctxt.bezierCurveTo(0, 200, 300, 300, 50, 400);
+            // ctxt.lineWidth = 5;
+            // ctxt.strokeStyle = '#f00';
+            // ctxt.stroke();
+
+            /* Criando uma forma combinando vários métodos */
+            // var drawingSurface = document.getElementById("drawingSurface");
+            // var ctxt = drawingSurface.getContext("2d");
+            // ctxt.beginPath();
+            // ctxt.arc(300, 200, 75, 1.75 * Math.PI, 1.25 * Math.PI, false);
+            // ctxt.lineTo(150, 125);
+            // ctxt.quadraticCurveTo(300, 0, 450, 125);
+            // ctxt.lineTo(353, 144);
+            // ctxt.strokeStyle = "blue";
+            // ctxt.lineCap = "round";
+            // ctxt.lineWidth = 10;
+            // ctxt.stroke()
+
+            /* Criando um retângulo */
+            // var drawingSurface = document.getElementById("drawingSurface");
+            // var ctxt = drawingSurface.getContext("2d");
+            // ctxt.beginPath();
+            // ctxt.rect(300, 200, 150, 75);
+            // ctxt.stroke();
+            
+            /* Criando um retângulo centralizado */
+            // var drawingSurface = document.getElementById("drawingSurface");
+            // var ctxt = drawingSurface.getContext("2d");
+            // ctxt.beginPath();
+            // var x, y;
+            // x = 150;
+            // y = 75;
+            // ctxt.rect(300-(x/2), 200-(y/2), x, y);
+            // ctxt.fillStyle = "blue";
+            // ctxt.fill();
+            // ctxt.stroke();
+
+            /* Preenchendo uma forma com uma cor */
+            // var drawingSurface = document.getElementById("drawingSurface");
+            // var ctxt = drawingSurface.getContext("2d");
+            // ctxt.beginPath();
+            // var x, y;
+            // x = 150;
+            // y = 75;
+            // ctxt.fillStyle = "blue";
+            // ctxt.fillRect(300 - (x / 2), 200 - (y / 2), x, y);
+            // ctxt.stroke();
+
+            /* Preenchendo uma forma complexa com uma cor */
+            // var drawingSurface = document.getElementById("drawingSurface");
+            // var ctxt = drawingSurface.getContext("2d");
+            // ctxt.beginPath();
+            // ctxt.arc(300, 200, 75, 1.75 * Math.PI, 1.25 * Math.PI, false);
+            // ctxt.lineTo(150, 125);
+            // ctxt.quadraticCurveTo(300, 0, 450, 125);
+            // ctxt.lineTo(353, 144);
+            // ctxt.strokeStyle = "blue";
+            // ctxt.lineCap = "round";
+            // ctxt.lineWidth = 10;
+            // ctxt.fillStyle = "Green"
+            // ctxt.fill();
+            // ctxt.stroke()
+
+            /* Criando um degradê linear */
+            // var drawingSurface = document.getElementById("drawingSurface");
+            // var ctxt = drawingSurface.getContext("2d");
+            // ctxt.lineWidth = 3;
+            // ctxt.rect(150, 150, 200, 125);
+            // var gradient = ctxt.createLinearGradient(150, 150, 200, 125);
+            // gradient.addColorStop(0, "Black");
+            // gradient.addColorStop(0.5, "Gray");
+            // gradient.addColorStop(1, "White");
+            // ctxt.fillStyle = gradient;
+            // ctxt.fill();
+            // ctxt.stroke();
+
+            /* Criando um degradê radial */
+            // var drawingSurface = document.getElementById("drawingSurface");
+            // var ctxt = drawingSurface.getContext("2d");
+            // ctxt.lineWidth = 3;
+            // ctxt.rect(150, 150, 250, 175);
+            // var gradient = ctxt.createRadialGradient(200, 200, 5, 250, 250, 100);
+            // gradient.addColorStop(0, "Red");
+            // gradient.addColorStop(.5, "Orange");
+            // gradient.addColorStop(1, "Blue");
+            // ctxt.fillStyle = gradient;
+            // ctxt.fill();
+            // ctxt.stroke();
+
+            /* Preenchendo o fundo do canvas com um padrão de imagem. Deve ser feito somente após a imagem carregar. */
+            var drawingSurface = document.getElementById("drawingSurface");
+            var ctxt = drawingSurface.getContext("2d");
+            ctxt.lineWidth = 3;
+            ctxt.rect(150, 150, 200, 125);
+            var img = new Image();
+            img.src = "http://www.babylonjs-playground.com/textures/reflectivity.png";
+            img.onload = function () {
+                var pat = ctxt.createPattern(img, "repeat");
+                ctxt.fillStyle = pat;
+                ctxt.fill();
+                ctxt.stroke();
+            }
+            
         }
 
         function play() {
@@ -76,7 +236,7 @@
             video.pause();
         }
         function back() {
-            video.currentTime -= 10;
+            video.currentTime -= 2;
         }
     </script>
 </head>
@@ -152,6 +312,10 @@
         <source src="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3" type="audio/mp3" />
         <p>Your browser does not support HTML5 audio.</p>
     </audio>
+
+    <canvas id="drawingSurface" width="600" height="400">
+        Your browser does not support HTML5.
+    </canvas>
 </body>
 
 </html>
