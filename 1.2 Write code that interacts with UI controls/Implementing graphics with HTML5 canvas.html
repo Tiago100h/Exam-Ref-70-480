@@ -3,76 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>HTML source to work with the DOM</title>
+    <title>Implementing graphics with HTML5 canvas</title>
 
     <style>
-        img:hover {
-            cursor: pointer;
-        }
-
         canvas {
             border: 1px solid black;
         }
     </style>
 
     <script>
-        var video;
         window.onload = function () {
-            // var element = document.getElementById("outerDiv");
-            // alert(element.innerHTML);
-
-            // var paragraphs = document.getElementsByTagName("p");
-            // alert(paragraphs.length);
-
-            // var paragraphs = document.getElementsByClassName("subPara");
-            // alert("<p> elements with class subPara: " + paragraphs.length);
-
-            // var paragraphs = document.querySelectorAll("p");
-            // alert(paragraphs.length);
-
-            // var element = document.querySelector("#outerDiv");
-            // alert(element.innerHTML);
-
-            // var element = document.getElementById("innerDiv");
-            // alert(element.innerHTML);
-            // document.removeChild(element);
-            // var afterRemove = document.getElementById("innerDiv");
-            // alert(afterRemove);
-
-            // var outerDiv = document.getElementById("outerDiv");
-            // var element = document.createElement("article");
-            // element.innerText = "My new <article> element";
-            // outerDiv.appendChild(element);
-
-            // var element = document.getElementById("outerDiv").appendChild(document.createElement("article"));
-            // element.innerText = "My new <article> element";
-
-            // var element = document.getElementById("outerDiv").insertBefore(document.createElement("article"), document.getElementById("innerDiv"));
-            // element.innerText = "My new <article> element";
-
-            // var inner = document.getElementById("innerDiv");
-            // var element = inner.insertBefore(document.createElement("article"), inner.firstChild);
-            // element.innerText = "My new <article> element";
-
-            // var innerDiv = document.getElementById("innerDiv");
-            // var p = innerDiv.removeChild(document.getElementById("P1"));
-
-            // var innerDiv = document.getElementById("innerDiv");
-            // innerDiv.removeNode(true);
-
-            // var innerDiv = document.getElementById("innerDiv");
-            // var newDiv = document.createElement("div");
-            // for (var i = 0; i < innerDiv.childNodes.length; i++) {
-            //     var anchor = newDiv.appendChild(document.createElement("a"));
-            //     anchor.setAttribute("href", "http://www.bing.ca");
-            //     anchor.text = innerDiv.childNodes[i].textContent;
-            //     newDiv.appendChild(document.createElement("br"));
-            // }
-            // innerDiv.replaceNode(newDiv);
-
-            video = document.getElementById("sampleVideo");
-
-
             /* Desenhando linhas alterando a espessura e cor */
             // var drawingSurface = document.getElementById("drawingSurface");
             // var ctxt = drawingSurface.getContext("2d");
@@ -214,105 +154,48 @@
             // ctxt.stroke();
 
             /* Preenchendo o fundo do canvas com um padrão de imagem. Deve ser feito somente após a imagem carregar. */
+            // var drawingSurface = document.getElementById("drawingSurface");
+            // var ctxt = drawingSurface.getContext("2d");
+            // ctxt.lineWidth = 3;
+            // ctxt.rect(150, 150, 200, 125);
+            // var img = new Image();
+            // img.src = "http://www.babylonjs-playground.com/textures/reflectivity.png";
+            // img.onload = function () {
+            //     var pat = ctxt.createPattern(img, "repeat");
+            //     ctxt.fillStyle = pat;
+            //     ctxt.fill();
+            //     ctxt.stroke();
+            // }
+
+            /* Desenhando imagem no canvas */
+            // var drawingSurface = document.getElementById("drawingSurface");
+            // var ctxt = drawingSurface.getContext("2d");
+            // var img = new Image();
+            // img.src = "https://img.icons8.com/cute-clipart/2x/orange.png";
+            // img.onload = function () {
+            //     //ctxt.drawImage(img, 0, 0);
+            //     /* Reduzindo o tamanho da imagem pela metade */
+            //     ctxt.drawImage(img, 0, 0, img.width * .5, img.height * .5);
+            //     ctxt.stroke();
+            // }
+
+            /* Desenhando texto */
             var drawingSurface = document.getElementById("drawingSurface");
             var ctxt = drawingSurface.getContext("2d");
-            ctxt.lineWidth = 3;
-            ctxt.rect(150, 150, 200, 125);
-            var img = new Image();
-            img.src = "http://www.babylonjs-playground.com/textures/reflectivity.png";
-            img.onload = function () {
-                var pat = ctxt.createPattern(img, "repeat");
-                ctxt.fillStyle = pat;
-                ctxt.fill();
-                ctxt.stroke();
-            }
-            
-        }
-
-        function play() {
-            video.play();
-        }
-        function pause() {
-            video.pause();
-        }
-        function back() {
-            video.currentTime -= 2;
+            ctxt.strokeText("1. Text with default font", 100, 100);
+            ctxt.font = "24px arial";
+            ctxt.strokeText("2. Text with altered font", 100, 125);
+            ctxt.strokeStyle = "Red"
+            ctxt.strokeText("3. Text with altered colored font", 100, 160);
+            ctxt.fillStyle = "Red";
+            ctxt.fillText("4. Text with altered colored font", 100, 185);
+            ctxt.textAlign = "center";
+            ctxt.fillText("5. Text with altered colored font Centered.", drawingSurface.width / 2, drawingSurface.height / 2)
         }
     </script>
 </head>
 
 <body>
-    <div id="outerDiv">
-        <p class="mainPara">Main Paragraph</p>
-        <ul>
-            <li>First List Item</li>
-            <li>Second List Item</li>
-            <li>Third List Item</li>
-            <li>Fourth List Item</li>
-        </ul>
-        <div id="innerDiv" class="subPara">
-            <p class="subPara" id="P1">Paragraph 1</p>
-            <p class="subPara" id="P2">Paragraph 2</p>
-            <p class="subPara" id="P3">Paragraph 3</p>
-            <p class="subPara" id="P4">Paragraph 4</p>
-        </div>
-        <table>
-            <tr>
-                <td>Row 1
-                </td>
-            </tr>
-            <tr>
-                <td>Row 2
-                </td>
-            </tr>
-            <tr>
-                <td>Row 3
-                </td>
-            </tr>
-            <tr>
-                <td>Row 4
-                </td>
-            </tr>
-            <tr>
-                <td>Row 5
-                </td>
-            </tr>
-        </table>
-        <input type="text" /><input type="submit" value="Submit" />
-    </div>
-
-    <video controls poster="https://upload.wikimedia.org/wikipedia/commons/c/c9/Moon.jpg" height="400" width="600" loop>
-        <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4" />
-        <source src="http://techslides.com/demos/sample-videos/small.ogv" type="video/ogg" />
-        <object>
-            <p>Video is not supported by this browser.</p>
-        </object>
-    </video>
-
-    <table>
-        <tr>
-            <td>
-                <video height="400" width="600" id="sampleVideo">
-                    <source src="http://techslides.com/demos/sample-videos/small.mp4" type="audio/mp4" />
-                </video>
-            </td>
-            <td>
-                <img id="backButton"
-                    src="https://img.pngio.com/backward-fast-media-icon-download-free-icons-backwards-png-256_256.png"
-                    onclick="back();" /><br />
-                <img id="playButton" src="https://image.flaticon.com/icons/png/128/148/148736.png"
-                    onclick="play();" /><br />
-                <img id="PauseButton" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-pause-128.png"
-                    onclick="pause();" /><br />
-            </td>
-        </tr>
-    </table>
-
-    <audio controls>
-        <source src="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3" type="audio/mp3" />
-        <p>Your browser does not support HTML5 audio.</p>
-    </audio>
-
     <canvas id="drawingSurface" width="600" height="400">
         Your browser does not support HTML5.
     </canvas>
