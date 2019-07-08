@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        img {
+            height: 150px;
+            width: 225px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var top = document.getElementById("topText");
+            var left = document.getElementById("leftText");
+            var pos = document.getElementById("positioning");
+            document.getElementById("btnPosition").onclick = function () {
+                var img = document.getElementById("orange2");
+                img.style.position = pos.value;
+                img.style.left = left.value + "px";
+                img.style.top = top.value + "px";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table style="width: 100%; height: 100%; border: 1px solid black;">
+        <tr>
+            <td style="vertical-align: top; width: 80%">
+                <img id="orange1" src="http://www.chm.bris.ac.uk/motm/limonene/Oranges%202.jpg" />
+                <img id="orange2" src="http://www.chm.bris.ac.uk/motm/limonene/Oranges%202.jpg" />
+            </td>
+            <td style="vertical-align: top;">Left:
+                <input type="text" id="leftText" /><br />
+                Top:
+                <input type="text" id="topText" /><br />
+                Position:
+                <select id="positioning">
+                    <!-- No posicionamento relativo, o elemento é posicionado em relação às coordenadas imediatas do irmão esquerdo -->
+                    <option>relative</option>
+                    <!-- No posicionamento absoluto, o elemento é colocado no local exato especificado em relação às bordas do contêiner -->
+                    <option>absolute</option>
+                </select><br />
+                <input type="button" id="btnPosition" value="Update">
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

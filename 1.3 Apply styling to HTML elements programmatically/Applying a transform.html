@@ -1,0 +1,52 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #orange1 {
+            height: 150px;
+            width: 225px;
+        }
+
+        .trans {
+            /*
+            Rotaciona (utilizar valor negativo para rotacionar no sentido anti-horário)
+            transform: rotate(90deg);
+            */
+
+            /*
+            Move o elemento em relação a sua posição atual
+            transform: translate(50px,0px);
+            */
+
+            /*
+            Inclina o objeto para que ele não fique paralelo ao eixo vertical ou horizontal
+            transform: skew(10deg, 10deg);
+            */
+
+            /*
+            Redimenciona o elemento por uma taxa específica a partir do seu centro absoluto (espcificar um valor de -1 inverte o objeto no eixo horizontal)
+            transform: scale(1.5);
+            */
+
+            /*
+            Transformações podem ser combinadas (a ordem é importante)
+            */
+            transform: translate(50px,0px) scale(1.5) skew(10deg, 10deg);
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            document.getElementById("orange1").onclick = function () {
+                this.classList.add("trans");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <img id="orange1" src="http://www.chm.bris.ac.uk/motm/limonene/Oranges%202.jpg" style="position:relative" />
+</body>
+
+</html>
