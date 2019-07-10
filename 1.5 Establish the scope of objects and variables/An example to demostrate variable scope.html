@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        // Variável global, acessível de qualquer lugar.
+        var globalVar = "global";
+        window.onload = function () {
+            // Variável local, acessível somente dentro da função onload.
+            var localVar = "local";
+            var scaleX = 0.0;
+            document.getElementById("Div1").onclick = function () {
+                // Variável acessível no evento de click da Div1.
+                var insideDiv1Click = "insideDiv1";
+                alert(globalVar);
+                alert(localVar);
+                alert(insideDiv1Click);
+            };
+            document.getElementById("Div2").onclick = function () {
+                alert(globalVar);
+                alert(localVar);
+                // Erro ao tentar acessar variável declarada no outro evento.
+                alert(insideDiv1Click);
+            };
+            document.getElementById("Div3").onclick = function () {
+                var insideDiv3 = "Div3";
+                AFunction();
+                BFunctionWithParam(insideDiv3);
+            };
+            function AFunction() {
+                var x;
+                // Erro ao tentar acessar variável declarada no outro evento, mesmo que o evento chave este método.
+                alert(insideDiv3);
+            }
+            function BFunctionWithParam(p) {
+                alert(p);
+                alert(localVar);
+            }
+            document.getElementById("Div4").onclick = function () {
+                // Variável local declarada neste método substitui a outra variável com o mesmo nome declarada no onload.
+                var scaleX = -3;
+                alert(scaleX);
+                scaleDiv();
+            }
+            function scaleDiv() {
+                //code to scale the Div by a factor of scaleX
+                alert(scaleX);
+            }
+        }
+        /*
+        Evitando usar namespace global
+        Um padrão considerado para utilizar namespace único é o nome do domínio ao contrário, por exemplo, com.microsoft,
+        pois nomes de domínio são únicos.
+        */
+        var com = {};
+        com.Bookstore = {};
+        com.Bookstore.Book = {
+            title: 'my book',
+            genre: 'fiction'
+        };
+        com.Bookstore.Author = {
+            firstName: 'R',
+            lastName: 'D'
+        }
+    </script>
+</head>
+
+<body>
+    <div id="Div1"></div>
+    <div id="Div2"></div>
+    <div id="Div3"></div>
+    <div id="Div4"></div>
+</body>
+
+</html>
