@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var watcher;
+        var geoLocator;
+        window.onload = function () {
+            geoLocator = window.navigator.geolocation;
+            /*
+            método getCurrentPosition: obtém a posição atual
+            método watchPosition: pesquisa continuamente a posição atual
+            método clearWatch: cancela a pesquisa contínua da posição atual
+            pripriedades do parâmetro positionOptions: 
+                enableighAccuracy: melhora a precisão
+                timeout: tempo limite de quanto tempo o método pode demorar para ser concluído
+                maximumAge: utilizar dado armazenado em cache, quando disponível, em vez de fazer fazer uma nova chamada para obter a posiçao
+            */
+            var posOptions = { enableHighAccuracy: true, timeout: 45000 };
+            // geoLocator.getCurrentPosition(successPosition, errorPosition, posOptions);
+            watcher = geoLocator.watchPosition(successPosition, errorPosition, posOptions);
+        }
+        function successPosition(pos) {
+            var sp = document.createElement("p");
+            sp.innerText = "Latitude: " + pos.coords.latitude + " Longitude: " + pos.coords.longitude;
+            document.getElementById("geoResults").appendChild(sp);
+            geoLocator.clearWatch(watcher);
+        }
+        function errorPosition(err) {
+            var sp = document.createElement("p");
+            sp.innerText = "error: " + err.message + " code: " + err.code;
+            document.getElementById("geoResults").appendChild(sp);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="geoResults">
+        <p>Current Location is:</p>
+    </div>
+</body>
+
+</html>
