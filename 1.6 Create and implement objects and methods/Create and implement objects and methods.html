@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Objective 1.6: Create and implement objects and methods</title>
+    <script>
+        window.onload = function () {
+            // Exemplo de objeto estático (não precisa criar uma instância para ele)
+            var squareValue = Math.sqrt(144);
+            console.log(squareValue);
+
+            // Exemplo de objeto não estático (requer uma instância para trabalhar com ele)
+            var listofPrimeNumbers = new Array(1, 2, 3, 5, 7, 11, 13, 19, 23);
+            console.log(listofPrimeNumbers);
+
+            // Declarando variáveis e acessando métodos
+            var txt = "my long string";
+            var num = 5;
+            var index = txt.indexOf("long", 0);
+            var exp = num.toExponential(5);
+            console.log(txt);
+            console.log(num);
+            console.log(index);
+            console.log(exp);
+
+            // Os tipos string e integer não possuem métodos ou funcionalidades nativamente
+            // Mas o JavaScript cria um objeto dinamicamente para adicionar alguns métodos úteis
+            // Por exemplo, variáveis desse tipo podem ser criadas usando new, mas não é muito comum
+            var txtNew = new String("my long string");
+            var numNew = new Number(5);
+            console.log(txtNew);
+            console.log(numNew);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
