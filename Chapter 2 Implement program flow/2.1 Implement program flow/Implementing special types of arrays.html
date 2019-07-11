@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        // Utilizando os métodos pop e push (operações feitas no final do array) (LIFO - last in first out)
+        var sports1 = new Array();
+        // push insere os elementos na ordem dos parâmetros (no final)
+        sports1.push('soccer', 'basketball', 'hockey');
+        sports1.push('football');
+        // pop remove e retorna o último elemento inserido
+        var nextSport1 = sports1.pop();
+
+        // Utilizando os métodos shift e unshift (operações feitas no começo do array) (LIFO - last in first out)
+        var sports2 = new Array();
+        // unshift insere os elementos no começo do array
+        sports2.unshift('soccer', 'basketball', 'hockey');
+        sports2.unshift('football');
+        // shift remove e retorna o primeiro elemento inserido
+        var nextSport2 = sports1.shift();
+
+        // Combinando os métodos para criar o conceito de fila FIFO (first in first out) (inserções no final e remoções no início)
+        var sports3 = new Array();
+        sports3.push('soccer');
+        sports3.push('basketball');
+        sports3.push('hockey');
+        var get1 = sports3.shift();
+        sports3.push('golf');
+        var get2 = sports3.shift();
+
+        // Combinando os métodos para criar o conceito de fila FIFO (first in first out) (inserções no início e remoções no final)
+        var sports4 = new Array();
+        sports4.unshift('soccer');
+        sports4.unshift('basketball');
+        sports4.unshift('hockey');
+        var get3 = sports4.pop();
+        sports4.unshift('golf');
+        var get4 = sports4.pop();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

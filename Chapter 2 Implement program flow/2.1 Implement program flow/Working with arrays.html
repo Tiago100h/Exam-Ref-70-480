@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        // Criar array vazio sem tamanho padrão
+        var anArray1 = new Array();
+
+        // Criar array com um tamanho padrão
+        var anArray2 = new Array(5);
+
+        // Criar um array inicializado com dados
+        var anArray3 = new Array('soccer', 'basketball', 'badminton');
+
+        // Criar um array sem utilizar construtor (o JavaScript converte a variável para o tipo objeto Array)
+        var anArray4 = ['soccer', 'basketball', 'badminton'];
+
+        // Acessar um elemento dentro do Array
+        var anArray5 = new Array(5);
+        anArray5[1] = 'soccer';
+        alert(anArray5[1]);
+
+        // O tamanho de um Array é muito dinâmico. Ao tentar acessar a 10ª posição de um Array declarado com tamanho 5, será redimensionado automaticamente
+        var anArray6 = new Array(5);
+        alert(anArray6.length);
+        anArray6[9] = 'soccer';
+        alert(anArray6.length);
+
+        // Um array multidimensional pode conter outros arrays.
+        // Array de duas dimensões 3x3
+        var multiArray = new Array(3);
+        multiArray[0] = new Array(3);
+        multiArray[1] = new Array(3);
+        multiArray[2] = new Array(3);
+
+        // Acessar um array bidimensional (2ª linha e 3ª coluna)
+        multiArray[1][2] = 'ball sport';
+
+        /* Alguns métodos de array afetam o objeto Array diretamente, enquanto outros retornam um novo objeto Array! */
+
+        // Utilizando o método concat
+        var sports1 = new Array('football', 'cricket', 'rugby', 'tennis', 'badminton');
+        var moreSports = new Array('soccer', 'basketball', 'hockey');
+        var combinedSports = sports1.concat(moreSports);
+
+        // Utilizando os métodos indexOf e lastIndexOf
+        // Se não encontrar, é retornado -1. O segundo parâmetro indica a partir de qual índice a pesquisa começará
+        var sports2 = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
+        var index = sports2.indexOf('football', 0);
+        // O método lastIndexOf, pesquisa no array de trás para frente
+        // Os 2 métodos usam o operador de identidade (===) para checkar a igualdade
+
+        // Utilizando o método join (junta os elementos do array em uma string separada pelo separador especificado)
+        var sports3 = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
+        var joined = sports3.join(',');
+
+        // Utilizando o método reverse (inverte os elementos)
+        var sports4 = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
+        sports4.reverse();
+
+        // Utlizando o método sort (sequencia os elementos em ordem crescente)
+        var sports5 = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
+        alert(sports5.indexOf('soccer'));
+        sports5.sort();
+        alert(sports5.indexOf('soccer'));
+
+        // Utilizando o método slice (copia 1 ou mais elementos do array para uma nova array)
+        var sports6 = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
+        var someSports = sports6.slice(1, 2);
+        // Os parâmetros indicam os índices que a operação começa e termina. O índice final não inclui o elemento
+
+        // Utilizando o método splice (retorna um novo array com os itens substituídos)
+        var sports7 = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
+        var splicedItens = sports7.splice(1, 3, 'golf', 'curling', 'darts');
+        // O primeiro parâmetro indica o índice que a operação começa, o segundo indica a quantidade de elementos a serem substitituídos,
+        // o último parâmetro opcional é uma lista de novos itens que serão substituídos (se este último parâmetro não for passado, os itens a serem substituídos apenas serão removidos)
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

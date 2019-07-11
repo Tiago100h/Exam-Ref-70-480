@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.onload = function () {
+            var n = 2000, s = '2000';
+            // Operador de igualdade ignora o tipo
+            alert(n == s);
+            // Operador de itentidade considera o tipo
+            alert(n === s);
+
+            // Declarações condicionais, como o if, podem ser aninhados
+            var userAge = 10, gender = 'M'
+            var minimumAge = 11;
+            if (userAge > minimumAge) {
+                if (gender == 'M') {
+                    //do logic for above age male
+                }
+                else {
+                    //do logic for above age female
+                }
+            } else if (gender == 'M') {
+                //do logic for underage male
+            } else {
+                //do logic for underage female
+            }
+
+            // Condicional examinando a cor de fundo de um elemento
+            var canvas = document.getElementById("canvas1");
+            if (canvas.style.backgroundColor == 'green') {
+                alert('proceed');
+            } else if (canvas.style.backgroundColor == 'yellow') {
+                alert('slow down/safely stop');
+            } else if (canvas.style.backgroundColor == 'red') {
+                alert('stop');
+            }
+
+            // Operador lógico OR
+            var canvas = document.getElementById("canvas1");
+            if (canvas.style.backgroundColor == 'green' || canvas.style.backgroundColor == 'yellow') {
+                alert('proceed');
+            } else if (canvas.style.backgroundColor == 'red') {
+                alert('stop');
+            }
+
+            // Instrução switch
+            switch (canvas.style.backgroundColor) {
+                case 'yellow':
+                    alert('slow down');
+                    break;
+                case 'green':
+                    alert('proceed');
+                    break;
+                case 'red':
+                    alert('stop');
+                    break;
+                default:
+                    alert('unknown condition');
+                    break;
+            }
+
+            // Operador lógico OR na instrução switch
+            switch (canvas.style.backgroundColor) {
+                case 'yellow':
+                case 'green':
+                    alert('proceed');
+                    break;
+                case 'red':
+                    alert('stop');
+                    break;
+                default:
+                    alert('unknown condition')
+                    break;
+            }
+
+            // Operador ternário
+            canvas.style.backgroundColor == 'green' ? document.write('proceed') : document.write('stop');
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="canvas1" style="background-color: yellow"></canvas>
+</body>
+
+</html>
