@@ -5,33 +5,145 @@
     <meta charset="UTF-8">
     <title>Objective 1.6: Create and implement objects and methods</title>
     <script>
-        window.onload = function () {
-            // Exemplo de objeto estático (não precisa criar uma instância para ele)
-            var squareValue = Math.sqrt(144);
-            console.log(squareValue);
+        // Exemplo de objeto estático (não precisa criar uma instância para ele)
+        var squareValue = Math.sqrt(144);
+        console.log(squareValue);
 
-            // Exemplo de objeto não estático (requer uma instância para trabalhar com ele)
-            var listofPrimeNumbers = new Array(1, 2, 3, 5, 7, 11, 13, 19, 23);
-            console.log(listofPrimeNumbers);
+        // Exemplo de objeto não estático (requer uma instância para trabalhar com ele)
+        var listofPrimeNumbers = new Array(1, 2, 3, 5, 7, 11, 13, 19, 23);
+        console.log(listofPrimeNumbers);
 
-            // Declarando variáveis e acessando métodos
-            var txt = "my long string";
-            var num = 5;
-            var index = txt.indexOf("long", 0);
-            var exp = num.toExponential(5);
-            console.log(txt);
-            console.log(num);
-            console.log(index);
-            console.log(exp);
+        // Declarando variáveis e acessando métodos
+        var txt = "my long string";
+        var num = 5;
+        var index = txt.indexOf("long", 0);
+        var exp = num.toExponential(5);
+        console.log(txt);
+        console.log(num);
+        console.log(index);
+        console.log(exp);
 
-            // Os tipos string e integer não possuem métodos ou funcionalidades nativamente
-            // Mas o JavaScript cria um objeto dinamicamente para adicionar alguns métodos úteis
-            // Por exemplo, variáveis desse tipo podem ser criadas usando new, mas não é muito comum
-            var txtNew = new String("my long string");
-            var numNew = new Number(5);
-            console.log(txtNew);
-            console.log(numNew);
+        // Os tipos string e integer não possuem métodos ou funcionalidades nativamente
+        // Mas o JavaScript cria um objeto dinamicamente para adicionar alguns métodos úteis
+        // Por exemplo, variáveis desse tipo podem ser criadas usando new, mas não é muito comum
+        var txtNew = new String("my long string");
+        var numNew = new Number(5);
+        console.log(txtNew);
+        console.log(numNew);
+
+        // Criando um objeto dinâmico com propriedades e métodos
+        var book = {
+            ISBN: "55555555",
+            Length: 560,
+            genre: "programming",
+            covering: "soft",
+            author: "John Doe",
+            currentPage: 5,
+            title: "My Big Book of Wonderful Things",
+            flipTo: function flipToAPage(pNum) {
+                this.currentPage = pNum;
+            },
+            turnPageForward: function turnForward() {
+                this.flipTo(this.currentPage++);
+            },
+            turnPageBackward: function turnBackward() {
+                this.flipTo(this.currentPage--);
+            }
         }
+        console.log(book);
+
+        // Criando um protótipo para o objeto book
+        function BookOld() {
+            this.ISBN = "55555555";
+            this.Length = 560;
+            this.genre = "programming";
+            this.covering = "soft";
+            this.author = "John Doe";
+            this.currentPage = 5,
+                this.flipTo = function FlipToAPage(pNum) {
+                    this.currentPage = pNum;
+                },
+                this.turnPageForward = function turnForward() {
+                    this.flipTo(this.currentPage++);
+                },
+                this.turnPageBackward = function turnBackward() {
+                    this.flipTo(this.currentPage--);
+                }
+        }
+        var booksOld = new Array(new BookOld(), new BookOld(), new BookOld());
+        console.log(booksOld[0].Length);
+        console.table(booksOld);
+
+        // Criando um protótipo com 2 construtores
+        function Book() {
+            //just creates an empty book
+        }
+        function Book(title, length, author) {
+            this.title = title;
+            this.Length = length;
+            this.author = author;
+        }
+        // Book.prototype = {
+        //     ISBN: "",
+        //     Length: -1,
+        //     genre: "",
+        //     covering: "",
+        //     author: new Author(),
+        //     currentPage: 0,
+        //     title: "",
+        //     flipTo: function flipToAPage(pNum) {
+        //         this.currentPage = pNum;
+        //     },
+        //     turnPageForward: function turnForward() {
+        //         this.flipTo(this.currentPage++);
+        //     },
+        //     turnPageBackward: function turnBackward() {
+        //         this.flipTo(this.currentPage--);
+        //     }
+        // }
+        Book.prototype.ISBN = "";
+        Book.prototype.Length = 350;
+        Book.prototype.genre = "";
+        Book.prototype.covering = "";
+        Book.prototype.author = new Author();
+        Book.prototype.currentPage = 0;
+        Book.prototype.title = "";
+        function Author() {
+        }
+        function Author(firstName, lastName, gender) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.gender = gender;
+        }
+        Author.prototype = {
+            firstName: "",
+            lastName: "",
+            gender: "",
+            BookCount: 0
+        }
+        var books = new Array(new Book(), new Book("First Edition", 350, new Author("Random", "Author", "M")));
+        console.log(books);
+
+        // Estendendo um objeto (herança) em linha
+        var popupBookOld = Object.create(Book.prototype, {
+            hasSound: {
+                value: true
+            }, showPopUp: {
+                value: function showPop() {
+                    //do logic to show a popup
+                }
+            }
+        });
+
+        // Estentendo um protótipo
+        function PopUpBook() {
+            Book.call(this);
+        }
+        PopUpBook.prototype = Book.prototype;
+        PopUpBook.prototype.hasSound = false;
+        PopUpBook.prototype.showPopUp = function ShowPop() { };
+        var popUpBook = new PopUpBook();
+        console.log(popUpBook);
     </script>
 </head>
 
