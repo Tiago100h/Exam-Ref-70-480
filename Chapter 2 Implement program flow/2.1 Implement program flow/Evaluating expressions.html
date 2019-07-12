@@ -3,86 +3,197 @@
 
 <head>
     <meta charset="UTF-8">
+    <style>
+        button, select {
+            cursor: pointer;
+        }
+    </style>
     <script>
         window.onload = function () {
+            // Operadores de igualdade de identidade
             var n = 2000, s = '2000';
-            // Operador de igualdade ignora o tipo
-            alert(n == s);
-            // Operador de itentidade considera o tipo
-            alert(n === s);
+            document.getElementById("igualdade").onclick = function () {
+                alert(n == s);
+                alert('Operador de igualdade ignora o tipo');
+            }
+            document.getElementById("identidade").onclick = function () {
+                alert(n === s);
+                alert('Operador de identidade considera o tipo');
+            }
 
             // Declarações condicionais, como o if, podem ser aninhados
-            var userAge = 10, gender = 'M'
-            var minimumAge = 11;
-            if (userAge > minimumAge) {
-                if (gender == 'M') {
-                    //do logic for above age male
+            document.getElementById("if").onclick = function () {
+                var userAge = document.getElementById("userAge").value;
+                var gender = document.getElementById("gender").value;
+                var minimumAge = document.getElementById("minimumAge").value;
+                if (userAge > minimumAge) {
+                    if (gender == 'M') {
+                        alert("do logic for above age male");
+                    }
+                    else {
+                        alert("do logic for above age female");
+                    }
+                } else if (gender == 'M') {
+                    alert("do logic for underage male");
+                } else {
+                    alert("do logic for underage female");
                 }
-                else {
-                    //do logic for above age female
-                }
-            } else if (gender == 'M') {
-                //do logic for underage male
-            } else {
-                //do logic for underage female
+            }
+
+            var canvas = document.getElementById("canvas1");
+            var cor = document.getElementById("cor");
+            cor.onchange = function () {
+                canvas.style.backgroundColor = cor.value;
             }
 
             // Condicional examinando a cor de fundo de um elemento
-            var canvas = document.getElementById("canvas1");
-            if (canvas.style.backgroundColor == 'green') {
-                alert('proceed');
-            } else if (canvas.style.backgroundColor == 'yellow') {
-                alert('slow down/safely stop');
-            } else if (canvas.style.backgroundColor == 'red') {
-                alert('stop');
+            document.getElementById("condicionalCor").onclick = function () {
+                if (canvas.style.backgroundColor == 'green') {
+                    alert('proceed');
+                } else if (canvas.style.backgroundColor == 'yellow') {
+                    alert('slow down/safely stop');
+                } else if (canvas.style.backgroundColor == 'red') {
+                    alert('stop');
+                }
             }
 
             // Operador lógico OR
-            var canvas = document.getElementById("canvas1");
-            if (canvas.style.backgroundColor == 'green' || canvas.style.backgroundColor == 'yellow') {
-                alert('proceed');
-            } else if (canvas.style.backgroundColor == 'red') {
-                alert('stop');
+            document.getElementById("or").onclick = function () {
+                if (canvas.style.backgroundColor == 'green' || canvas.style.backgroundColor == 'yellow') {
+                    alert('proceed');
+                } else if (canvas.style.backgroundColor == 'red') {
+                    alert('stop');
+                }
             }
 
             // Instrução switch
-            switch (canvas.style.backgroundColor) {
-                case 'yellow':
-                    alert('slow down');
-                    break;
-                case 'green':
-                    alert('proceed');
-                    break;
-                case 'red':
-                    alert('stop');
-                    break;
-                default:
-                    alert('unknown condition');
-                    break;
+            document.getElementById("switch").onclick = function () {
+                switch (canvas.style.backgroundColor) {
+                    case 'yellow':
+                        alert('slow down');
+                        break;
+                    case 'green':
+                        alert('proceed');
+                        break;
+                    case 'red':
+                        alert('stop');
+                        break;
+                    default:
+                        alert('unknown condition');
+                        break;
+                }
             }
 
             // Operador lógico OR na instrução switch
-            switch (canvas.style.backgroundColor) {
-                case 'yellow':
-                case 'green':
-                    alert('proceed');
-                    break;
-                case 'red':
-                    alert('stop');
-                    break;
-                default:
-                    alert('unknown condition')
-                    break;
+            document.getElementById("orSwitch").onclick = function () {
+                switch (canvas.style.backgroundColor) {
+                    case 'yellow':
+                    case 'green':
+                        alert('proceed');
+                        break;
+                    case 'red':
+                        alert('stop');
+                        break;
+                    default:
+                        alert('unknown condition')
+                        break;
+                }
             }
 
             // Operador ternário
-            canvas.style.backgroundColor == 'green' ? document.write('proceed') : document.write('stop');
+            document.getElementById("ternario").onclick = function () {
+                canvas.style.backgroundColor == 'green' ? alert('proceed') : alert('stop');
+            }
         }
     </script>
 </head>
 
 <body>
-    <canvas id="canvas1" style="background-color: yellow"></canvas>
+    <pre>var n = 2000, s = '2000';</pre>
+    <button id="igualdade">alert(n == s);</button>
+    <button id="identidade">alert(n === s);</button>
+    <hr>
+    userAge: <input type="number" id="userAge" value="10">
+    gender: <input type="text" id="gender" value="M">
+    minimumAge: <input type="number" id="minimumAge" value="11">
+    <pre>
+        if (userAge > minimumAge) {
+            if (gender == 'M') {
+                alert("do logic for above age male");
+            }
+            else {
+                alert("do logic for above age female");
+            }
+        } else if (gender == 'M') {
+            alert("do logic for underage male");
+        } else {
+            alert("do logic for underage female");
+        }
+    </pre>
+    <button id="if">Testar ifs aninhados</button>
+    <hr>
+    cor:
+    <select id="cor">
+        <option>white</option>
+        <option>green</option>
+        <option>yellow</option>
+        <option>red</option>
+    </select>
+    <canvas id="canvas1"></canvas>
+    <pre>
+        if (canvas.style.backgroundColor == 'green') {
+            alert('proceed');
+        } else if (canvas.style.backgroundColor == 'yellow') {
+            alert('slow down/safely stop');
+        } else if (canvas.style.backgroundColor == 'red') {
+            alert('stop');
+        }
+        <button id="condicionalCor">Testar condicional examinando a cor de fundo de um elemento</button>
+        </pre>
+    <pre>
+        if (canvas.style.backgroundColor == 'green' || canvas.style.backgroundColor == 'yellow') {
+            alert('proceed');
+        } else if (canvas.style.backgroundColor == 'red') {
+            alert('stop');
+        }
+        <button id="or">Testar operador lógico OR</button>
+    </pre>
+    <pre>
+        switch (canvas.style.backgroundColor) {
+            case 'yellow':
+                alert('slow down');
+                break;
+            case 'green':
+                alert('proceed');
+                break;
+            case 'red':
+                alert('stop');
+                break;
+            default:
+                alert('unknown condition');
+                break;
+        }
+        <button id="switch">Testar instrução switch</button>
+    </pre>
+    <pre>
+        switch (canvas.style.backgroundColor) {
+            case 'yellow':
+            case 'green':
+                alert('proceed');
+                break;
+            case 'red':
+                alert('stop');
+                break;
+            default:
+                alert('unknown condition')
+                break;
+        }
+        <button id="orSwitch">Testar operador lógico OR na instrução switch</button>
+    </pre>
+    <pre>
+        canvas.style.backgroundColor == 'green' ? alert('proceed') : alert('stop');
+        <button id="ternario">Testar operador ternário</button>
+    </pre>
 </body>
 
 </html>
