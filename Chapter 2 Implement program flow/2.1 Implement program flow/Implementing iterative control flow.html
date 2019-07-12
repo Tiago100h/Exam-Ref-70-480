@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.onload = function () {
+            // Utilizando o laço for
+            for (var i = 0; i < 10; i++) {
+                document.write(i);
+            }
+            for (var i = 10; i > 0; i--) {
+                document.write(i);
+            }
+            for (var i = 1; i < 100; i *= 2) {
+                document.write(i);
+                document.write("<br />");
+            }
+            var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+            for (var i = 0; i < alphabet.length; i++) {
+                document.write(alphabet[i]);
+                document.write("<br />");
+            }
+
+            // Utilizando o laço for...in (usado para iterar nas propriedades de um objeto)
+            var person = { firstName: "Jane", lastName: "Doe", birthDate: "Jan 5, 1925", gender: "female" };
+            for (var prop in person) {
+                document.write(prop);
+            }
+            for (var prop in person) {
+                document.write(person[prop]);
+            }
+
+            // Utilizando o laço while
+            var i = 0;
+            while (i < 10) {
+                //do som work here.
+                i++;
+            }
+            var canvas = document.getElementById("canvas1");
+            while (canvas.style.backgroundColor == 'green') {
+                //move traffic
+            }
+
+            // Utilizando o laço do...while
+            do {
+                //stop traffic
+            } while (canvas.style.backgroundColor == 'red')
+
+            /*
+            A palavra chave break sai do loop completamente.
+            A palavra chave continue pausa o bloco de código e vai para próxima iteração do loop.
+
+            O for deve ser utilizado em vez do while quando se sabe exatamente o número de iterações que precisa ser feito!
+            */
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
