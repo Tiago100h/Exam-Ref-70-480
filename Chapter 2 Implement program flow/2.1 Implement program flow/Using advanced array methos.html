@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.onload = function () {
+            /* 
+            Utilizando o método every
+            Determina se todos os elementos do array satisfazem a condição
+            da função de callback que é processada para cada elemento.
+            */
+            var evenNumbers = new Array(0, 2, 4, 6, 8, 9, 10, 12);
+            var allEven1 = evenNumbers.every(evenNumberCheck, this);
+            if (allEven1) {
+
+            } else {
+
+            }
+            function evenNumberCheck(value, index, array) {
+                return (value % 2) == 0;
+            }
+
+            /*
+            Utilizando o método some
+            Determina se algum elemento do array satisfaz a condição
+            da função de callback que é processada para cada elemento.
+            */
+            var allEven2 = evenNumbers.some(evenNumberCheck, this);
+            if (allEven2) {
+
+            } else {
+
+            }
+
+            /*
+            Utilizando o método forEach
+            Processa alguma lógica da função de callback para cada
+            elemento do array e não retorna nenhum valor
+            */
+            var sportsArray = ['soccer', 'basketball', 'hockey', 'cricket', 'rugby'];
+            sportsArray.forEach(offerSport);
+            function offerSport(value, index, array) {
+                var sportsList = document.getElementById("sportsList");
+                var bullet = document.createElement("li");
+                bullet.innerText = value;
+                sportsList.appendChild(bullet);
+            }
+            // Métodos podem ser encadeados, por exemplo, para ordenar em ordem alfabética
+            sportsArray.sort().forEach(offerSport);
+
+            /*
+            Utilizando o método filter
+            Retorna um novo array com os elementos que satisfazem
+            a função de callback
+            */
+            var allEven3 = evenNumbers.filter(evenNumberCheck, evenNumbers);
+
+            /*
+            Utilizando o método map
+            Chama uma função de callback para cada elemento do array
+            e retorna um array que contém o resultado
+            */
+            var money = [12.8, 15.9, 21.7, 35.2];
+            var roundedMoney = money.map(roundOff, money);
+            function roundOff(value, position, array) {
+                return Math.round(value);
+            }
+            // Função que retorna o quadrado de uma série de números
+            var numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+            var squares = numbers.map(squareNumber, numbers);
+            function squareNumber(value, position, array) {
+                return value * value;
+            }
+
+            /*
+            Utilizando os métodos reduce e reduceRight
+            São métodos recursivos. Cada resultado da função do callback é passado
+            de volta como parâmetro junto com o elemento atual.
+            reduce processa os elementos do array em ordem crescente
+            reduceRight processa os elementos do array em ordem decrescente
+            */
+            var factorials = numbers.reduce(factorial);
+            function factorial(previous, current) {
+                return previous * current;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="sportsList"></ul>
+</body>
+
+</html>
