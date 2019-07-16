@@ -1,44 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <style>
+        button {
+            cursor: pointer;
+        }
+    </style>
     <script>
-        // Utilizando os métodos pop e push (operações feitas no final do array) (LIFO - last in first out)
-        var sports1 = new Array();
-        // push insere os elementos na ordem dos parâmetros (no final)
-        sports1.push('soccer', 'basketball', 'hockey');
-        sports1.push('football');
-        // pop remove e retorna o último elemento inserido
-        var nextSport1 = sports1.pop();
+        window.onload = function () {
+            var sportsP = document.getElementById("sports");
+            var nextSportP = document.getElementById("nextSport");
+            var sports = new Array();
+            var nextSport = "";
 
-        // Utilizando os métodos shift e unshift (operações feitas no começo do array) (LIFO - last in first out)
-        var sports2 = new Array();
-        // unshift insere os elementos no começo do array
-        sports2.unshift('soccer', 'basketball', 'hockey');
-        sports2.unshift('football');
-        // shift remove e retorna o primeiro elemento inserido
-        var nextSport2 = sports1.shift();
+            document.getElementById("new").onclick = function () {
+                sports = new Array();
+                sportsP.innerHTML = "sports: " + sports;
+            }
 
-        // Combinando os métodos para criar o conceito de fila FIFO (first in first out) (inserções no final e remoções no início)
-        var sports3 = new Array();
-        sports3.push('soccer');
-        sports3.push('basketball');
-        sports3.push('hockey');
-        var get1 = sports3.shift();
-        sports3.push('golf');
-        var get2 = sports3.shift();
+            document.getElementById("empty").onclick = function () {
+                nextSport = "";
+                nextSportP.innerHTML = "nextSport: " + nextSport;
+            }
 
-        // Combinando os métodos para criar o conceito de fila FIFO (first in first out) (inserções no início e remoções no final)
-        var sports4 = new Array();
-        sports4.unshift('soccer');
-        sports4.unshift('basketball');
-        sports4.unshift('hockey');
-        var get3 = sports4.pop();
-        sports4.unshift('golf');
-        var get4 = sports4.pop();
+            // Utilizando os métodos pop e push (operações feitas no final do array) (LIFO - last in first out)
+            // push insere os elementos na ordem dos parâmetros (no final)
+            document.getElementById("push3").onclick = function () {
+                sports.push('soccer', 'basketball', 'hockey');
+
+                sportsP.innerHTML = "sports: " + sports;
+            }
+            document.getElementById("push").onclick = function () {
+                sports.push(document.getElementById("inputPush").value);
+
+                sportsP.innerHTML = "sports: " + sports;
+            }
+
+            // pop remove e retorna o último elemento inserido
+            document.getElementById("pop").onclick = function () {
+                nextSport = sports.pop();
+
+                nextSportP.innerHTML = "nextSport: " + nextSport;
+                sportsP.innerHTML = "sports: " + sports;
+            }
+
+            // Utilizando os métodos shift e unshift (operações feitas no começo do array) (LIFO - last in first out)
+            // unshift insere os elementos no começo do array
+            document.getElementById("unshift3").onclick = function () {
+                sports.unshift('soccer', 'basketball', 'hockey');
+
+                sportsP.innerHTML = "sports: " + sports;
+            }
+            document.getElementById("unshift").onclick = function () {
+                sports.unshift(document.getElementById("inputUnshift").value);
+
+                sportsP.innerHTML = "sports: " + sports;
+            }
+            // shift remove e retorna o primeiro elemento inserido
+            document.getElementById("shift").onclick = function () {
+                nextSport = sports.shift();
+
+                nextSportP.innerHTML = "nextSport: " + nextSport;
+                sportsP.innerHTML = "sports: " + sports;
+            }
+
+            // Combinando os métodos para criar o conceito de fila FIFO (first in first out) (inserções no final e remoções no início)
+            var sports3 = new Array();
+            sports3.push('soccer');
+            sports3.push('basketball');
+            sports3.push('hockey');
+            var get1 = sports3.shift();
+            sports3.push('golf');
+            var get2 = sports3.shift();
+
+            // Combinando os métodos para criar o conceito de fila FIFO (first in first out) (inserções no início e remoções no final)
+            var sports4 = new Array();
+            sports4.unshift('soccer');
+            sports4.unshift('basketball');
+            sports4.unshift('hockey');
+            var get3 = sports4.pop();
+            sports4.unshift('golf');
+            var get4 = sports4.pop();
+        }
     </script>
 </head>
+
 <body>
-    
+    <p id="sports">sports: </p>
+    <p id="nextSport">nextSport: </p>
+    <pre>
+        var sports = <button id="new">new Array();</button>
+        var nextSport = <button id="empty">"";</button>
+        sports.<button id="push3">push('soccer', 'basketball', 'hockey')</button>;
+        sports.<button id="push">push('</button><input type="text" id="inputPush" value="football">');
+        nextSport = sports.<button id="pop">pop()</button>;
+        sports.<button id="unshift3">unshift('soccer', 'basketball', 'hockey')</button>;
+        sports2.<button id="unshift">unshift('</button><input type="text" id="inputUnshift" value="football">');
+        nextSport = sports.<button id="shift">shift()</button>;
+    </pre>
 </body>
+
 </html>

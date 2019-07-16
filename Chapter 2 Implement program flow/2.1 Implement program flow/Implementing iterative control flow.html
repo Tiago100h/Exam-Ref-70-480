@@ -7,34 +7,32 @@
         window.onload = function () {
             // Utilizando o laço for
             for (var i = 0; i < 10; i++) {
-                document.write(i);
+                document.getElementById("for1").innerHTML += i;
             }
             for (var i = 10; i > 0; i--) {
-                document.write(i);
+                document.getElementById("for2").innerHTML += i;
             }
             for (var i = 1; i < 100; i *= 2) {
-                document.write(i);
-                document.write("<br />");
+                document.getElementById("for3").innerHTML += i + "<br />";
             }
             var alphabet = 'abcdefghijklmnopqrstuvwxyz';
             for (var i = 0; i < alphabet.length; i++) {
-                document.write(alphabet[i]);
-                document.write("<br />");
+                document.getElementById("for4").innerHTML += alphabet[i] + "<br />";
             }
 
             // Utilizando o laço for...in (usado para iterar nas propriedades de um objeto)
             var person = { firstName: "Jane", lastName: "Doe", birthDate: "Jan 5, 1925", gender: "female" };
             for (var prop in person) {
-                document.write(prop);
+                document.getElementById("for-in1").innerHTML += prop;
             }
             for (var prop in person) {
-                document.write(person[prop]);
+                document.getElementById("for-in2").innerHTML += person[prop];
             }
 
             // Utilizando o laço while
             var i = 0;
             while (i < 10) {
-                //do som work here.
+                document.getElementById("while").innerHTML += i;
                 i++;
             }
             var canvas = document.getElementById("canvas1");
@@ -58,7 +56,14 @@
 </head>
 
 <body>
-
+    <p id="for1"></p>
+    <p id="for2"></p>
+    <div id="for3"></div>
+    <div id="for4"></div>
+    <p id="for-in1"></p>
+    <p id="for-in2"></p>
+    <p id="while"></p>
+    <canvas id="canvas1" style="background-color: yellow"></canvas>
 </body>
 
 </html>

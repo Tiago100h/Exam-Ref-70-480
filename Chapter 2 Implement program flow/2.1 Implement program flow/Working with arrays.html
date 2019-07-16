@@ -50,43 +50,81 @@
 
             /* Alguns métodos de array afetam o objeto Array diretamente, enquanto outros retornam um novo objeto Array! */
 
-            // Utilizando o método concat
-            var divConcat = document.getElementById("divConcat");
-            var sports = new Array('football', 'cricket', 'rugby', 'tennis', 'badminton');
+            var sports1 = new Array('football', 'cricket', 'rugby', 'tennis', 'badminton');
             var moreSports = new Array('soccer', 'basketball', 'hockey');
-            var combinedSports = sports1.concat(moreSports);
+            var divSports1 = document.getElementById("sports1");
+            var divMoreSports = document.getElementById("moreSports");
+            divSports1.innerHTML = "sports: " + sports1;
+            divMoreSports.innerHTML = "moreSports: " + moreSports;
+
+            // Utilizando o método concat
+            document.getElementById("concat").onclick = function () {
+                var combinedSports = sports1.concat(moreSports);
+
+                divSports1.innerHTML = "sports: " + sports1;
+                divMoreSports.innerHTML = "moreSports: " + moreSports;
+                document.getElementById("combinedSports").innerHTML = "combinedSports: " + combinedSports;
+            }
 
             // Utilizando os métodos indexOf e lastIndexOf
             // Se não encontrar, é retornado -1. O segundo parâmetro indica a partir de qual índice a pesquisa começará
-            var sports2 = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
-            var index = sports2.indexOf('football', 0);
             // O método lastIndexOf, pesquisa no array de trás para frente
             // Os 2 métodos usam o operador de identidade (===) para checkar a igualdade
+            document.getElementById("indexOf").onclick = function () {
+                var sports = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
+                var index = sports.indexOf(document.getElementById("searchElement").value, document.getElementById("fromIndex").value);
+
+                alert(index);
+            }
 
             // Utilizando o método join (junta os elementos do array em uma string separada pelo separador especificado)
-            var sports3 = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
-            var joined = sports3.join(',');
+            document.getElementById("join").onclick = function () {
+                var sports = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
+                var joined = sports.join(document.getElementById("separator").value);
 
+                alert(joined);
+            }
+
+            var sports2 = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
+            var divSports2 = document.getElementById("sports2");
+            divSports2.innerHTML = "sports: " + sports2;
+            
             // Utilizando o método reverse (inverte os elementos)
-            var sports4 = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
-            sports4.reverse();
+            document.getElementById("reverse").onclick = function () {
+                sports2.reverse();
+
+                divSports2.innerHTML = "sports: " + sports2;
+            }
 
             // Utlizando o método sort (sequencia os elementos em ordem crescente)
-            var sports5 = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
-            alert(sports5.indexOf('soccer'));
-            sports5.sort();
-            alert(sports5.indexOf('soccer'));
+            document.getElementById("sort").onclick = function () {
+                sports2.sort();
+
+                divSports2.innerHTML = "sports: " + sports2;
+            }
+
+            var sports3 = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
+            var divSports3 = document.getElementById("sports3");
+            divSports3.innerHTML = "sports: " + sports3;
 
             // Utilizando o método slice (copia 1 ou mais elementos do array para uma nova array)
-            var sports6 = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
-            var someSports = sports6.slice(1, 2);
             // Os parâmetros indicam os índices que a operação começa e termina. O índice final não inclui o elemento
+            document.getElementById("slice").onclick = function () {
+                var someSports = sports3.slice(document.getElementById("startSlice").value, document.getElementById("end").value);
+
+                divSports3.innerHTML = "sports: " + sports3;
+                document.getElementById("someSports").innerHTML = "someSports: " + someSports;
+            }
 
             // Utilizando o método splice (retorna um novo array com os itens substituídos)
-            var sports7 = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
-            var splicedItens = sports7.splice(1, 3, 'golf', 'curling', 'darts');
             // O primeiro parâmetro indica o índice que a operação começa, o segundo indica a quantidade de elementos a serem substitituídos,
             // o último parâmetro opcional é uma lista de novos itens que serão substituídos (se este último parâmetro não for passado, os itens a serem substituídos apenas serão removidos)
+            document.getElementById("splice").onclick = function () {
+                var splicedItens = sports3.splice(1, 3, 'golf', 'curling', 'darts');
+
+                divSports3.innerHTML = "sports: " + sports3;
+                document.getElementById("splicedItens").innerHTML = "splicedItens: " + splicedItens;
+            }
 
         }
 
@@ -96,14 +134,62 @@
 
 <body>
     <p>Visualizar console para resultados dos comando básicos de arrays.</p>
+
     <hr>
-    <div id="divConcat">
-        <pre>
-            var sports = new Array('football', 'cricket', 'rugby', 'tennis', 'badminton');
-            var moreSports = new Array('soccer', 'basketball', 'hockey');
-            var combinedSports = sports1.concat(moreSports);
-        </pre>
-    </div>
+
+    <pre>
+        var sports = new Array('football', 'cricket', 'rugby', 'tennis', 'badminton');
+        var moreSports = new Array('soccer', 'basketball', 'hockey');
+        var combinedSports = sports.concat(moreSports);
+    </pre>
+    <button id="concat">sports.concat(moreSports)</button>
+    <p id="sports1"></p>
+    <p id="moreSports"></p>
+    <p id="combinedSports">combinedSports: </p>
+
+    <hr>
+
+    <pre>
+        var sports = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');.
+        var index = sports.indexOf("football", 0);
+        var joined = sports.join(",");
+    </pre>
+    <button id="indexOf">sports.indexOf(searchElement, fromIndex)</button>
+    <input type="text" id="searchElement" value="football">
+    <input type="number" id="fromIndex" value="0">
+    <br>
+    <button id="join">sports.join(separator)</button>
+    <input type="text" id="separator" value=",">
+
+    <hr>
+
+    <pre>
+        var sports = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
+        sports.reverse();
+        sports.sort();
+    </pre>
+    <button id="reverse">sports.reverse()</button>
+    <button id="sort">sports.sort()</button>
+    <p id="sports2"></p>
+
+    <hr>
+
+    <pre>
+        var sports = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby', 'tennis', 'badminton');
+        var someSports = sports.slice(1, 2);
+        var splicedItens = sports.splice(1, 3, 'golf', 'curling', 'darts');
+    </pre>
+    <button id="slice">sports.slice(start, end)</button>
+    <input type="number" id="startSlice" value="1">
+    <input type="number" id="end" value="2">
+    <br>
+    <button id="splice">sports.splice(start, deleteCount, ...items)</button>
+    <input type="number" id="startSplice" value="1">
+    <input type="number" id="deleteCount" value="3">
+    <p id="sports3"></p>
+    <p id="someSports">someSports: </p>
+    <p id="splicedItens">splicedItens: </p>
+
 </body>
 
 </html>
