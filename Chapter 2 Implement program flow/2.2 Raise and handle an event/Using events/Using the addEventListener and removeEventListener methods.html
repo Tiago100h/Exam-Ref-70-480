@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.addEventListener("load", onloadHandler, false);
+        window.addEventListener("load", onloadHandler2, false);
+        window.addEventListener("load", onloadHandler3, false);
+
+        window.removeEventListener("load", onloadHandler2, false);
+
+        function onloadHandler() {
+            alert("hello event 1.");
+        }
+        function onloadHandler2() {
+            alert("hello event 2.");
+        }
+        function onloadHandler3() {
+            alert("hello event 3.");
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

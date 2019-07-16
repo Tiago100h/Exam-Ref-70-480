@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.onload = function () {
+            var a = document.getElementById("aLink");
+            a.onclick = OverrideAnchorClick;
+        }
+        function OverrideAnchorClick() {
+            //do custom logic for the anchor
+            window.event.returnValue = false;
+            //or
+            //return false;
+        }
+    </script>
+</head>
+
+<body>
+    <a href="microsoft.com" id="aLink">Microsoft</a>
+</body>
+
+</html>
