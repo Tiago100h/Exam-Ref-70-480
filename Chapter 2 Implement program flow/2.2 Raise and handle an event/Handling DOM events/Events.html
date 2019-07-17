@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .scale {
+            transform: scale(1.5);
+        }
+
+        #yellowBox {
+            width: 50%;
+            height: 50%;
+            margin: 0 auto;
+            background-color: yellow;
+            position: absolute;
+            right: 0;
+            left: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // Change events
+            document.getElementById("aRange").addEventListener("change", rangeChangeEvent);
+            document.getElementById("aText").addEventListener("change", rangeChangeEvent);
+
+            // Focus events
+            var firstNameText = document.getElementById("firstNameText");
+            firstNameText.focus();
+            firstNameText.addEventListener("blur", function () {
+                var ruleViolation = document.getElementById("ruleViolation");
+                if (this.value.length < 5) {
+                    ruleViolation.innerText = 'First Name is required to be 5 letters.'
+                    ruleViolation.style.color = 'red';
+                    this.focus();
+                }
+                else {
+                    ruleViolation.innerText = '';
+                }
+            });
+
+            // Keyboards events
+            firstNameText.addEventListener("keydown", function () {
+                document.getElementById("outputText").innerText = window.event.keyCode;
+            });
+            document.onkeydown = function () {
+                if (window.event.shiftKey && String.fromCharCode(window.event.keyCode) == 'F') {
+                    firstNameText.focus();
+                }
+                if (window.event.shiftKey && String.fromCharCode(window.event.keyCode) == 'L') {
+                    document.getElementById("lastNameText").focus();
+                }
+            }
+
+            // Mouse events
+            var yellowBox = document.getElementById("yellowBox");
+            yellowBox.addEventListener("click", yellowBoxClick);
+            yellowBox.addEventListener("mouseenter", yellowBoxEnter);
+            yellowBox.addEventListener("mouseleave", yellowBoxLeave);
+        }
+
+        function rangeChangeEvent() {
+            document.getElementById("rangeValue").innerText = this.value;
+        }
+
+        function yellowBoxClick() {
+            var yellowBoxResult = document.getElementById("yellowBoxResult");
+            yellowBoxResult.innerText = "Client X: " + window.event.clientX + " Client Y: " + window.event.clientY;
+            yellowBoxResult.innerHTML += "<br>";
+            yellowBoxResult.innerText += "offset X: " + window.event.offsetX + " offset Y: " + window.event.offsetY;
+            yellowBoxResult.innerHTML += "<br>";
+            yellowBoxResult.innerText += "screen X: " + window.event.screenX + " screen Y: " + window.event.screenY;
+        }
+        function yellowBoxEnter() {
+            this.classList.add("scale");
+        }
+        function yellowBoxLeave() {
+            this.classList.remove("scale");
+        }
+    </script>
+</head>
+
+<body>
+    <input type="range" id="aRange" max="200" min="0" value="0">
+    <input type="text" id="aText">
+    <div id="rangeValue"></div>
+
+    <input type="text" id="firstNameText">
+    <p id="ruleViolation"></p>
+    <p id="outputText"></p>
+    <input type="text" id="lastNameText">
+
+    <div id="yellowBox"></div>
+    <div id="yellowBoxResult"></div>
+</body>
+
+</html>
