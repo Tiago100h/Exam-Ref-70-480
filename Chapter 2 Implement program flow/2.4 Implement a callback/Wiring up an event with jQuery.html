@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"> type = "text/javascript"</script>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById("door1").onclick = function () { };
+            document.getElementById("door2").onclick = function () { };
+            document.getElementById("door3").onclick = function () { };
+        }
+
+        $("document").ready(function () {
+            $("td").click(function () { });
+        });
+
+        $("document").ready(function () {
+            $("#GameRow td").click(function () {
+                alert($(this).text());
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr id="GameRow">
+            <td id="door1">Door 1</td>
+            <td id="door2">Door 2</td>
+            <td id="door3">Door 3</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr id="SomeOtherRow">
+            <td id="cell1">Not a Door 1</td>
+            <td id="cell2">Not a Door 2</td>
+            <td id="cell3">Not a Door 3</td>
+        </tr>
+    </table>
+</body>
+
+</html>

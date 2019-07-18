@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"> type = "text/javascript"</script>
+    <script>
+        $("document").ready(function () {
+            $("#Button1").click(function () {
+                DoLongTask($("#inputValue").val(), function (result, data) {
+                    if (result == "SUCCESS") {
+                        alert(data + " is a Success");
+                    }
+                    else {
+                        alert(data + " is a fail");
+                    }
+                });
+            });
+        });
+        function DoLongTask(n, f) {
+            if (n < 10) {
+                f("SUCCESS", n);
+            }
+            else {
+                f("FAIL", n);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="number" id="inputValue"><button id="Button1">Button</button>
+</body>
+
+</html>
