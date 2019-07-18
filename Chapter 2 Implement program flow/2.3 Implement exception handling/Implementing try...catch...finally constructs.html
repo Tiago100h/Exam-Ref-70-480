@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        try {
+            window.dosomeunsupportedmethod();
+        } catch (e) {
+            alert("Browser does not support the desired functionality.");
+        }
+
+        window.onload = function () {
+            var canvas;
+            var context;
+            try {
+                canvas = document.getElementById("myCanvas");
+                context = canvas.getContext("2d");
+                contxt.arc(50, 50, 25, 0, 360);
+                context.fillStyle = "blue";
+                context.fill();
+                context.strokeStyle = "red";
+                context.stroke();
+            }
+            catch (e) {
+                context.strokeText(e.message, 50, 50);
+                console.log(e.message);
+            }
+            finally {
+                //do any final logic before exiting the method
+            }
+
+            try {
+                WorkWithCanvas();
+            } catch (e) {
+                console.log(e.message);
+            }
+
+            try {
+                var canvas = document.getElementById("myCanvas");
+                var context = canvas.getContext("2d");
+                ball.draw(context);
+            } catch (e) {
+                alert(e.message);
+            }
+        }
+
+        function WorkWithCanvas() {
+            try {
+                var canvas = document.getElementById("myCanvas");
+                var context = canvas.getContext("2d");
+                contxt.arc(50, 50, 25, 0, 360);
+                context.fillStyle = "blue";
+                context.fill();
+                context.strokeStyle = "red";
+                context.stroke();
+            } catch (e) {
+                //handle the exception as appropriate
+                throw e;
+            } finally {
+
+            }
+        }
+
+        var ball = {
+            x: -1,
+            y: -1,
+            draw: function DrawBall(c) {
+                if (this.x < 0) {
+                    throw new Error("Invalid X coordinate");
+                }
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <canvas id="myCanvas"></canvas>
+</body>
+
+</html>
