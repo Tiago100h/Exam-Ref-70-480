@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"> type = "text/javascript"</script>
+
+    <script>
+        $("document").ready(function () {
+            $("#btnGetXMLData").click(function () {
+                var XMLHTTPReadyState_COMPLETE = 4;
+
+                var xReq = new XMLHttpRequest();
+                xReq.open("GET", "myXMLData.xml", true);
+                xReq.timeout = 2000;
+                xReq.ontimeout = function () {
+                    $("#results").text("Request Timed out");
+                }
+                xReq.onreadystatechange = function (e) {
+                    if (xReq.readyState == XMLHTTPReadyState_COMPLETE) {
+                        if (xReq.status == "200") {
+                            $("#results").text(xReq.response);
+                        } else {
+                            $("#results").text(xReq.statusText);
+                        }
+                    }
+                }
+                xReq.send(null);
+            });
+
+            $("#btnGetJSONData").click(function () {
+                var XMLHTTPReadyState_COMPLETE = 4;
+
+                var xReq = new XMLHttpRequest();
+                xReq.open("GET", "myJSONData.json", true);
+                xReq.timeout = 2000;
+                xReq.ontimeout = function () {
+                    $("#results").text("Request Timed out");
+                }
+                xReq.onreadystatechange = function (e) {
+                    if (xReq.readyState == XMLHTTPReadyState_COMPLETE) {
+                        if (xReq.status == "200") {
+                            $("#results").text(xReq.response);
+                        } else {
+                            $("#results").text(xReq.statusText);
+                        }
+                    }
+                }
+                xReq.send(null);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form>
+        <input type="button" value="Get XML Data" id="btnGetXMLData">
+        <input type="button" value="Get JSON Data" id="btnGetJSONData">
+    </form>
+    <div id="results"></div>
+</body>
+
+</html>
