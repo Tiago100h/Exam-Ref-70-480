@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"> type = "text/javascript"</script>
+
+    <script type="text/javascript">
+        function CheckString() {
+            try {
+                var s = $('#regExString').val();
+                var regExpression = /^[A-Z,a-z]\d[A-Z, a-z][\s{1}]?\d[A-Z,a-z]\d/;
+                if (regExpression.test(s)) {
+                    alert("Valid postal code.");
+                }
+                else {
+                    alert("Invalid postal code.");
+                }
+            } catch (e) {
+                alert(e.message);
+            }
+        }
+
+        function CheckStringExec() {
+            var s = $('#regExString').val();
+            var regExpression = /^[A-Z,a-z]\d[A-Z, a-z][\s{1}]?\d[A-Z,a-z]\d/;
+            var results = regExpression.exec(s);
+            if (results != null) {
+                alert("Valid postal code." + results[0]);
+            }
+            else {
+                alert("Invalid postal code.");
+            }
+        }
+
+        function CheckIsNan() {
+            var s = $('#built-inFunctions').val();
+            if(isNaN(s)) {
+                alert("Handle the non number value.");
+            }
+            else {
+                alert("Proceed with the number value");
+            }
+        }
+
+        function CheckIsFinite() {
+            var s = $('#built-inFunctions').val();
+            if(isFinite(s)) {
+                alert("Proceed with the number value");
+            }
+            else {
+                alert("Handle the non number value.");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="regExString" />
+        <button onclick="CheckString();">Evaluate</button>
+        <button onclick="CheckStringExec();">Evaluate with Exec</button>
+        <br>
+        <input type="text" id="built-inFunctions">
+        <button onclick="CheckIsNan();">isNan</button>
+        <button onclick="CheckIsFinite();">isFinite</button>
+    </form>
+</body>
+
+</html>
