@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"> type = "text/javascript"</script>
+
+    <script>
+        function SendingDataByUsingXMLHttpRequest() {
+            var xmlData = "<Person firstname='Rick' lastName='Delorme' hairColor='Brown' eyeColor='Brown' />";
+            var xReq = new XMLHttpRequest();
+            xReq.open("POST", "/ReceiveXMLData.aspx", false);
+            xReq.send(xmlData);
+        }
+
+        function SerializingAndDeserializingJSONData() {
+            var person = {
+                FirstName: "Rick",
+                HairColor: "Brown"
+            };
+            var jsonPerson = JSON.stringify(person);
+
+            var req = new XMLHttpRequest();
+            req.open("GET", "MyJsonData.json", false);
+            req.send(null);
+            var jsonPersonParse = JSON.parse(req.responseText);
+        }
+
+        function DeserializingBinaryData() {
+            var xReq = new XMLHttpRequest();
+            xReq.open("GET", "orange.jpg", false);
+            xReq.responseType = 'blob';
+            xReq.send(null);
+            var blob = xReq.response;
+            document.GetElementById("result").src = URL.createObjectURL(blob);
+        }
+        function SerializingBinaryData() {
+            var xReq = new XMLHttpRequest();
+            xReq.open("POST", "saveImage.aspx", false);
+            xReq.responseType = 'blob';
+            xReq.send(data);
+        }
+
+        $("document").ready(function () {
+            $("form").submit(function () {
+
+                var fName = $("#firstName").val();
+                var lName = $("#lastName").val();
+                var qString = "Last Name=" + lName + "&First Name=" + fName;
+
+                $.ajax({
+                    url: 'processiSignUp.aspx',
+                    type: "POST",
+                    data: qString,
+                    success: function (r) {
+                    }
+                });
+                return false;
+            });
+
+            $("form").submit(function () {
+                var qString = $(this).serialize();
+                alert(qString);
+                $.ajax({
+                    url: 'processSignUp.aspx',
+                    type: "POST",
+                    data: qString,
+                    success: function (r) {
+                    }
+                });
+                return false;
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <input type="button" value="DeserializingBinaryData" onclick="DeserializingBinaryData();">
+    <img id="result">
+
+    <form id="signupForm" action="processSignUp.aspx">
+        First Name: <input type="text" id="firstName" name="firstName"><br>
+        Last Name: <input type="text" id="lastName" name="lastName"><br>
+        <input type="radio" name="gender" value="m">Male
+        <input type="radio" name="gender" value="f">Female
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
