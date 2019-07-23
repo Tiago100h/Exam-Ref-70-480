@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        h1 {
+            color: #00FF00;
+        }
+
+        h2 {
+            color: green;
+        }
+
+        h3 {
+            color: rgb(0, 255, 0);
+        }
+
+        p#bolded {
+            font-weight: bold; /* lighter, normal, bold, bolder, 100, 200, 300, 400, 500, 600, 700, 800, 900 */
+        }
+
+        p#italic {
+            font-style: italic;
+        }
+
+        p#arial {
+            font-family: Arial, 'Times New Roman', Webdings;
+        }
+
+        @font-face {
+            font-family: "My Nicer Font";
+            src: url('fonts/King Lionel - Personal Use.ttf');
+        }
+
+        p#fontFace {
+            font-family: 'My Nicer Font';
+        }
+
+        p#bigger {
+            font-size: x-large; /* xx-small, x-small, small, smaller, medium, larger, large, xx-large */
+        }
+
+        p#center {
+            text-align: center; /* right, left, justify */
+        }
+
+        p#indent {
+            text-indent: 50px;
+        }
+
+        p#letterSpacing {
+            letter-spacing: 8px;
+        }
+
+        p#wordSpacing {
+            word-spacing: 8px;
+        }
+
+        #hyphensNone {
+            width: 50px;
+            border: solid 1px;
+            hyphens: none; /* auto, manual */
+        }
+
+        #hyphensAuto {
+            width: 50px;
+            border: solid 1px;
+            hyphens: auto; /* none, manual */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hexadecimal green</h1>
+    <h2>Color name green</h2>
+    <h3>rgb green</h3>
+    <p id="bolded">Bolded Text</p>
+    <p id="italic">Italic Text</p>
+
+    <p id="arial">Arial Font Family</p>
+    <p id="fontFace">King Lionel Font Family</p>
+    <p>Normal size text</p>
+    <p id="bigger">bigger Text</p>
+
+    <div>
+        <p id="center">This text is aligned center.</p>
+        <p id="indent">This text is indented 50px.</p>
+        <p id="letterSpacing">Letters are spaced.</p>
+        <p id="wordSpacing">Words are spaced.</p>
+    </div>
+
+    <div id="hyphensNone">
+        a very long sentence that may be broken up by hyphenation.
+    </div>
+    <div id="hyphensAuto">
+        a very long sentence that may be broken up by hyphenation.
+    </div>
+</body>
+
+</html>
