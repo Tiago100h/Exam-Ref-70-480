@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table {
+            height: 50%;
+            width: 50%;
+        }
+
+        div {
+            width: 200px;
+            height: 100px;
+        }
+
+        p#individualLines {
+            border-style: solid; /* dashed, dotted, groove... */
+            border-color: black;
+            border-spacing: 250px;
+            border-width: 5px;
+        }
+
+        p#singleLine {
+            border: 5px solid black;
+        }
+
+        p#border {
+            border-top: 15px solid black;
+            border-left: 10px solid black;
+            border-right: 10px solid black;
+            border-bottom: 5px solid black;
+        }
+
+        p#padding {
+            border-top: 15px solid black;
+            border-left: 10px solid black;
+            border-right: 10px solid black;
+            border-bottom: 5px solid black;
+            padding: 25px;
+
+            /* padding: 25px 25px 25px 25px; */
+
+            /* padding-top: 25px;
+            padding-bottom: 25px;
+            padding-left: 25px;
+            padding-right: 25px; */
+        }
+
+        p#margin {
+            border-top: 15px solid black;
+            border-left: 10px solid black;
+            border-right: 10px solid black;
+            border-bottom: 5px solid black;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            padding-left: 25px;
+            padding-right: 25px;
+            margin: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <table></table>
+    <div></div>
+    <p id="individualLines">Some text with a border</p>
+    <p id="singleLine">Some text with a border</p>
+    <p id="border">Some text with a border</p>
+    <p id="padding">Some text with a border</p>
+    <p id="margin">Some text with a border</p>
+</body>
+
+</html>

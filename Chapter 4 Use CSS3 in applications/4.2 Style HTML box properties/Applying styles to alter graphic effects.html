@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        p#opacity {
+            opacity: 0.4;
+        }
+
+        p#image {
+            background-image: url('https://img.icons8.com/cute-clipart/2x/orange.png');
+        }
+
+        p#image2 {
+            background-image: url('https://img.icons8.com/cute-clipart/2x/orange.png');
+            background-size: 20px;
+            background-repeat: repeat; /* repeat-x, repeat-y */
+            width: 200px;
+            height: 200px;
+            text-align: center;
+        }
+
+        p#gradient {
+            background: linear-gradient(black, gray);
+            color: white;
+        }
+
+        p#gradient2 {
+            background: linear-gradient(to right, black, gray, green);
+            color: white;
+        }
+
+        div#shadow {
+            margin-bottom: 50px;
+            position: relative;
+            left: 50px;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            border: solid 1px black;
+            box-shadow: 10px 10px;
+        }
+
+        div#shadow2 {
+            margin-bottom: 50px;
+            position: relative;
+            left: 50px;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            border: solid 1px black;
+            box-shadow: 10px 10px 10px;
+        }
+
+        div#shadow3 {
+            margin-bottom: 50px;
+            position: relative;
+            left: 50px;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            border: solid 1px black;
+            box-shadow: 10px 10px 10px 20px;
+        }
+
+        div#shadow4 {
+            margin-bottom: 100px;
+            position: relative;
+            left: 50px;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            border: solid 1px black;
+            box-shadow: 100px 100px 10px;
+        }
+
+        div#shadow5 {
+            margin-bottom: 100px;
+            position: relative;
+            left: 50px;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            border: solid 1px black;
+            box-shadow: 10px 10px inset gray;
+        }
+
+        p#shadow6 {
+            text-shadow: -10px -10px;
+        }
+
+        img#clip {
+            position: absolute;
+            clip: rect(25px, 50px, 50px, 25px);
+        }
+    </style>
+</head>
+
+<body>
+    <p>Before setting an opacity value.</p>
+    <p id="opacity">After setting an opacity value.</p>
+    <p id="image">A big bright orange.</p>
+    <p id="image2">A big bright orange.</p>
+    <p id="gradient">A linear gradient.</p>
+    <p id="gradient2">A linear gradient.</p>
+    <div id="shadow"></div>
+    <div id="shadow2"></div>
+    <div id="shadow3"></div>
+    <div id="shadow4"></div>
+    <div id="shadow5"></div>
+    <p id="shadow6">Ghost Story</p>
+    <img src="https://walnutgrovefloralboutique.com/wp-content/uploads/2017/05/Blue-Lagoon-256x256.jpg">
+    <img id="clip" src="https://walnutgrovefloralboutique.com/wp-content/uploads/2017/05/Blue-Lagoon-256x256.jpg">
+</body>
+
+</html>
