@@ -1,0 +1,19 @@
+{
+  "name": "servidor-rest",
+  "version": "1.0.0",
+  "description": "Projeto para o objetivo 2.4 do livro exam-ref 70-480",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "restify",
+    "70-480"
+  ],
+  "author": "Tiago Giuliatte Pereira",
+  "license": "ISC",
+  "dependencies": {
+    "restify": "^8.3.3"
+  }
+}

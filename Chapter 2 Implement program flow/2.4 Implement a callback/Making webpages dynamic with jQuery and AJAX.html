@@ -13,13 +13,13 @@
                 $('#searchResults').empty();
                 switch ($('#searchFruit').val()) {
                     case 'long':
-                        searchPath = "Fruit/Long.xml";
+                        searchPath = "http://localhost:8080/Fruit/Long.json";
                         break;
                     case 'round':
-                        searchPath = "Fruit/Round.xml";
+                        searchPath = "http://localhost:8080/Fruit/Round.json";
                         break;
                     case 'orange':
-                        searchPah = "Fruit/Orange.xml";
+                        searchPath = "http://localhost:8080/Fruit/Orange.json";
                         break;
                     default:
                         InvalidSearchTerm();
@@ -28,11 +28,11 @@
                 $.ajax({
                     url: searchPath,
                     cache: false,
-                    dataType: "xml",
-                    type: "POST",
+                    dataType: "json",
+                    type: "GET",
                     success: function (data) {
-                        $(data).find("fruit").each(function () {
-                            $('#searchResults').append($(this).text());
+                        $(data).each(function () {
+                            $('#searchResults').append(this.fruit);
                             $('#searchResults').append("<BR />");
                         })
                     },
