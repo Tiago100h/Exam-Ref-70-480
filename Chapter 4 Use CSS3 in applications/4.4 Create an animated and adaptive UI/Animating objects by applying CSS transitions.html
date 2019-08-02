@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            margin-left: 250px;
+            margin-top: 250px;
+            transition: background-color 1s, margin-left 1s;
+            /* transition-property: background-color, margin-left;
+            transition-duration: 1s;
+            transition-delay: 0; */
+            transition-timing-function: ease; /* linear, ease-in, ease-out, ease-in-out, cubic-bezier(0-1) */
+        }
+
+        div:hover {
+            margin-left: 350px;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

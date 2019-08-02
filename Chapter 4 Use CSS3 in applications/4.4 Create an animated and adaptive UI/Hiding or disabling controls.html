@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <style>
+        .myhiddenelements {
+            /* Esconde o elemento, mas o layout se comporta como se ele estivesse lá */
+            visibility: hidden;
+
+            /* Esconde o elemento e layout se comporta como se ele não existisse */
+            display: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"> type = "text/javascript"</script>
+    <script>
+        $("document").ready(function (e) {
+            $(".disableIt").attr("disabled", "disabled");
+        });
+    </script>
+</head>
+
+<body>
+    <button id="myButton" class="disableIt"> My Button</button>
+</body>
+
+</html>
