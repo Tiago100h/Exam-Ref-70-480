@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <style>
+        div {
+            font-family: sans-serif;
+            color: green;
+        }
+
+        p {
+            font-family: serif;
+            color: blue;
+        }
+
+        p {
+            color: purple !important;
+        }
+
+        p {
+            color: yellow;
+        }
+
+        p:first-child:first-letter {
+            font-size: xx-small;
+        }
+
+        p:first-child:hover:first-letter {
+            font-size: xx-large;
+        }
+
+        aside {
+            height: 100px;
+            width: 50px;
+            border: 2px solid black;
+            transform: skew(-5deg);
+            box-shadow: 5px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <aside></aside>
+    <div>
+        hello div world.
+        <p>Hello paragraph world.</p>
+        <p>Hello paragraph world.</p>
+        <p>Hello paragraph world.</p>
+    </div>
+</body>
+
+</html>
